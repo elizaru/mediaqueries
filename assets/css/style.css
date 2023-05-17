@@ -1,39 +1,42 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap");
 
 body {
   padding: 0;
   margin: 0;
   font-family: "Roboto", sans-serif;
 }
-/* MOBILE VERSION */
+
+/*CELULAR No me queda perfecto según yo, quisiera revisarlo*/
 .grid-container {
   display: grid;
-  grid-template-rows: 0.5fr 0.7fr 4fr 0.5fr;
+  grid-template-rows: 0.5fr 0.7fr 5fr 0.5fr;
   grid-template-areas:
     "navbar"
-    "filter-bar"
+    "filterbar"
     "main"
     "pag-list"
     "footer";
 }
 .navbar {
   background-color: #c2dbfc;
-  /* height: 3.5em; */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   grid-area: navbar;
 }
-
+.heart {
+  padding-left: 20px;
+}
 
 .navbar h1 {
   color: white;
   font-size: 30px;
-  /* margin-left: 1em; */
   font-weight: 500;
   padding: 2px;
+}
 
-
+.menu-item {
+  color: rgb(4, 160, 160);
 }
 
 .mobile-icon {
@@ -47,23 +50,20 @@ body {
   display: none;
 }
 
-.filter-bar {
-  /* height: 5em; */
+.filterbar {
   background-color: rgb(221, 214, 224);
-  grid-area: filter-bar;
+  grid-area: filterbar;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 18px;
 }
 
-.filter-bar p {
+.filterbar p {
   margin: 0;
-  color:white ;
+  color: white;
   font-weight: 500;
-
-
-
 }
 .select {
   width: 80%;
@@ -88,9 +88,6 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  -webkit-box-shadow: 0px 6px 15px -3px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 6px 15px -3px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 6px 15px -3px rgba(0, 0, 0, 0.75);
 }
 .card-product img {
   width: 100%;
@@ -143,6 +140,7 @@ footer {
   align-items: center;
   justify-content: center;
 }
+
 footer h3,
 footer a {
   margin: 0.2em;
@@ -157,17 +155,16 @@ footer a {
   margin-top: 0.5em;
 }
 
-/* -------------------- */
-/* Tablet version */
+/* Tablet */
 
 @media (min-width: 576px) {
   .grid-container {
     grid-template-columns: 1.2fr 6fr;
     grid-template-areas:
       "navbar navbar"
-      "filter-bar main"
-      "filter-bar main"
-      "filter-bar pag-list"
+      "filterbar main"
+      "filterbar main"
+      "filterbar pag-list"
       "footer footer";
   }
   .disabled {
@@ -195,50 +192,53 @@ footer a {
     margin-left: 1em;
     margin-right: 1em;
   }
-  .filter-bar {
+  .filterbar {
     justify-content: flex-start;
     color: rgb(255, 255, 255);
   }
-  .filter-bar p {
+  .filterbar p {
     margin-top: 3em;
     margin-bottom: 1em;
   }
   main {
     display: grid;
     grid-template-columns: auto auto;
+    gap: 30px;
   }
   .card-product {
     margin: auto;
-  }
-  button {
-    width: 40%;
-  }
-  .pag-list {
-    margin-bottom: 1em;
-  }
-  footer {
-    margin: 0;
+    width: 250px;
   }
 }
+button {
+  width: 40%;
+}
+.pag-list {
+  margin-bottom: 1em;
+}
+footer {
+  margin: 0;
+}
 
-/* ----------------- */
-/* Desktop version */
+/* Escritorio */
 
 @media (min-width: 992px) {
   .grid-container {
     grid-template-columns: 1fr 6fr;
     grid-template-areas:
-      "navbar filter-bar"
+      "navbar filterbar"
       "navbar main"
       "navbar main"
       "navbar main"
       "footer pag-list";
   }
-  .filter-bar {
+  .filterbar {
     height: 4em;
   }
-  .filter-bar p {
+  .filterbar p {
     margin: 0.5em 0 0 0;
+    padding-bottom: 10px;
+    font-size: medium;
   }
   .mobile-icon {
     display: none;
@@ -250,8 +250,13 @@ footer a {
     justify-content: flex-start;
     align-items: center;
   }
+
+  /* No puedo poner el título SAD CLOWN y el corazón roto donde yo quiero, quisiera revisarlo */
   .navbar h1 {
-    margin: 1em 0 1em 0;
+    margin: 1em 2em 1em 2em;
+    padding-left: 10px;
+    justify-content: center;
+    align-items: center;
   }
   .menu {
     display: flex;
@@ -268,6 +273,7 @@ footer a {
   main {
     display: grid;
     grid-template-columns: auto auto auto;
+    gap: 50px;
   }
 
   .disabled {
@@ -279,11 +285,14 @@ footer a {
     margin-top: 1em;
   }
 
+  .card-product {
+    width: 300px;
+  }
   button {
     width: 40%;
   }
   button:hover {
-    background-color: #012f6b;
+    background-color: #a2a9b1;
   }
 
   footer {
